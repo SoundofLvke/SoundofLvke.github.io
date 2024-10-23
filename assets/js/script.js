@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal Dynamische Inhalte
     const beatModal = document.getElementById('beatModal');
-    const modalTitle = document.getElementById('beatModalLabel');
+    const modalTitle = beatModal.querySelector('.modal-title');
     const modalImage = beatModal.querySelector('.modal-body img');
     const modalGenre = beatModal.querySelector('.modal-body p:nth-of-type(1)');
     const modalAudio = beatModal.querySelector('.modal-body audio source');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Setze die Modal-Inhalte
             modalTitle.textContent = beatTitle;
             modalImage.src = beatImageSrc;
-            modalGenre.innerHTML = `<strong>Genre:</strong> ${beatGenreText}`;
+            modalGenre.textContent = `Genre: ${beatGenreText}`;
             if (beatAudioSrc) {
                 modalAudio.src = beatAudioSrc;
                 modalAudioPlayer.load();
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 modalAudioPlayer.parentElement.style.display = 'none';
             }
-            modalDescription.innerHTML = `<strong>Beschreibung:</strong> ${beatDescription}`;
+            modalDescription.textContent = `Beschreibung: ${beatDescription}`;
             modalFormItemName.value = beatTitle;
             // Preis wird aus dem Preis-Paragraphen geholt
             const priceText = card.querySelector('.mt-2 strong') ? card.querySelector('.mt-2 strong').nextSibling.textContent.trim() : '49.99';
@@ -72,80 +72,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Filter-Buttons Funktionalität
-    document.querySelectorAll('.filter-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.getAttribute('data-filter');
-            const beats = document.querySelectorAll('.beat-item');
+    // Filter-Buttons Funktionalität (falls vorhanden)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                const beats = document.querySelectorAll('.beat-item');
 
-            beats.forEach(beat => {
-                if (filter === 'all' || beat.classList.contains(filter)) {
-                    beat.style.display = 'block';
-                    beat.classList.add('aos-animate');
-                } else {
-                    beat.style.display = 'none';
-                    beat.classList.remove('aos-animate');
-                }
-            });
+                beats.forEach(beat => {
+                    if (filter === 'all' || beat.classList.contains(filter)) {
+                        beat.style.display = 'block';
+                        beat.classList.add('aos-animate');
+                    } else {
+                        beat.style.display = 'none';
+                        beat.classList.remove('aos-animate');
+                    }
+                });
 
-            // Setze aktive Klasse
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-        });
-    });
-
-    // Initialisiere "Alle" als aktiven Filter beim Laden
-    const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
-    if (allBtn) {
-        allBtn.classList.add('active');
-    }
-
-    // Formular Feedback
-    const newsletterForm = document.getElementById('newsletterForm');
-    const newsletterFeedback = document.getElementById('newsletterFeedback');
-
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            fetch(this.action, {
-                method: this.method,
-                body: new FormData(this)
-            })
-            .then(response => {
-                if (response.ok) {
-                    newsletterFeedback.style.display = 'block';
-                    newsletterForm.reset();
-                } else {
-                    alert('Es gab ein Problem mit deiner Anmeldung. Bitte versuche es erneut.');
-                }
-            })
-            .catch(error => {
-                alert('Es gab ein Problem mit deiner Anmeldung. Bitte versuche es erneut.');
+                // Setze aktive Klasse
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
             });
         });
-    }
 
-    const contactForm = document.getElementById('contactForm');
-    const formFeedback = document.getElementById('formFeedback');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            fetch(this.action, {
-                method: this.method,
-                body: new FormData(this)
-            })
-            .then(response => {
-                if (response.ok) {
-                    formFeedback.style.display = 'block';
-                    contactForm.reset();
-                } else {
-                    alert('Es gab ein Problem mit deiner Nachricht. Bitte versuche es erneut.');
-                }
-            })
-            .catch(error => {
-                alert('Es gab ein Problem mit deiner Nachricht. Bitte versuche es erneut.');
-            });
-        });
+        // Initialisiere "Alle" als aktiven Filter beim Laden
+        const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+        if (allBtn) {
+            allBtn.classList.add('active');
+        }
     }
 });

@@ -27,48 +27,87 @@ window.addEventListener('resize', () => {
 });
 
 // Licht hinzufügen
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Weiches Umgebungslicht
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
-const pointLight = new THREE.PointLight(0xffffff, 1, 500);
+const pointLight = new THREE.PointLight(0xffffff, 1);
 pointLight.position.set(50, 50, 50);
 scene.add(pointLight);
 
-// Funktion zum Erstellen eines Partikels
-const particleGeometry = new THREE.BufferGeometry();
-const particleCount = 800; // Reduziert für bessere Performance
+// Partikel-Generator mit zufälligen Farben
+const particleCount = 2000;
+const particlesGeometry = new THREE.BufferGeometry();
 const positions = [];
 const colors = [];
 
 const color = new THREE.Color();
 
 for (let i = 0; i < particleCount; i++) {
-    const x = (Math.random() - 0.5) * 800;
-    const y = (Math.random() - 0.5) * 800;
-    const z = (Math.random() - 0.5) * 800;
+    // Position
+    const x = (Math.random() - 0.5) * 1000;
+    const y = (Math.random() - 0.5) * 1000;
+    const z = (Math.random() - 0.5) * 1000;
     positions.push(x, y, z);
 
-    // Zufällige, lebendige Farben
-    color.setHSL(Math.random(), 0.7, 0.5);
+    // Farbe
+    color.setHSL(Math.random(), 1.0, 0.5);
     colors.push(color.r, color.g, color.b);
 }
 
-particleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-particleGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+particlesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+particlesGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
-const particleMaterial = new THREE.PointsMaterial({
-    size: 1.5,
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 2,
     vertexColors: true,
     transparent: true,
     opacity: 0.7,
-    blending: THREE.AdditiveBlending
+    depthWrite: false
 });
 
-const particles = new THREE.Points(particleGeometry, particleMaterial);
+const particles = new THREE.Points(particlesGeometry, particlesMaterial);
 scene.add(particles);
 
+// Verbindungslinien zwischen nahegelegenen Partikeln
+const linesGeometry = new THREE.BufferGeometry();
+const linePositions = [];
+
+for (let i = 0; i < particleCount; i++) {
+    const indexA = i;
+    const particleA = new THREE.Vector3(
+        particlesGeometry.attributes.position.getX(indexA),
+        particlesGeometry.attributes.position.getY(indexA),
+        particlesGeometry.attributes.position.getZ(indexA)
+    );
+
+    for (let j = i + 1; j < particleCount; j++) {
+        const particleB = new THREE.Vector3(
+            particlesGeometry.attributes.position.getX(j),
+            particlesGeometry.attributes.position.getY(j),
+            particlesGeometry.attributes.position.getZ(j)
+        );
+
+        const distance = particleA.distanceTo(particleB);
+        if (distance < 100) { // Maximale Distanz für Verbindungen
+            linePositions.push(
+                particleA.x, particleA.y, particleA.z,
+                particleB.x, particleB.y, particleB.z
+            );
+        }
+    }
+}
+
+linesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+const linesMaterial = new THREE.LineBasicMaterial({
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0.1
+});
+const lines = new THREE.LineSegments(linesGeometry, linesMaterial);
+scene.add(lines);
+
 // Kamera positionieren
-camera.position.z = 150;
+camera.position.z = 300;
 
 // Mausbewegung für interaktive Kamera
 let mouseX = 0, mouseY = 0;
@@ -86,15 +125,16 @@ function onDocumentMouseMove(event) {
 // Animation loop
 const animate = function () {
     requestAnimationFrame(animate);
-    
+
     // Kamera sanft zur Mausposition bewegen
     camera.position.x += (mouseX * 50 - camera.position.x) * 0.05;
     camera.position.y += (-mouseY * 50 - camera.position.y) * 0.05;
     camera.lookAt(scene.position);
-    
-    // Partikel rotieren leicht für dynamische Bewegung
-    particles.rotation.y += 0.0005;
-    
+
+    // Rotation der Partikel und Linien
+    particles.rotation.y += 0.001;
+    lines.rotation.y += 0.001;
+
     renderer.render(scene, camera);
 };
 
