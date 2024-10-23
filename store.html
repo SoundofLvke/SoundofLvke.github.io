@@ -1,3 +1,4 @@
+<!-- store.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -38,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">Startseite</a>
+              <a class="nav-link" href="index.html">Startseite</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">Über Mich</a>
@@ -56,160 +57,164 @@
               <a class="nav-link" href="blog.html">Blog</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Mehr
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="moreDropdown">
-                    <li><a class="dropdown-item" href="testimonials.html">Testimonials</a></li>
-                    <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                </ul>
+              <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mehr
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                <li><a class="dropdown-item" href="testimonials.html">Testimonials</a></li>
+                <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+              </ul>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Breadcrumbs -->
-    <nav aria-label="breadcrumb" data-aos="fade-up">
-      <div class="container">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Startseite</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Beat-Shop</li>
-        </ol>
-      </div>
-    </nav>
-
     <!-- Beat-Shop Section -->
     <section class="py-5" data-aos="fade-up">
         <div class="container">
-            <h2 class="text-center mb-4 text-neon">Beat-Shop</h2>
-            <!-- Filter Buttons -->
+            <h2 class="text-center mb-4">Beat-Shop</h2>
+            <!-- Filter Buttons (Optional) -->
             <div class="text-center mb-4">
-                <button class="btn btn-outline-neon filter-btn active" data-filter="all">Alle</button>
-                <button class="btn btn-outline-neon filter-btn" data-filter="hip-hop">Hip-Hop</button>
-                <button class="btn btn-outline-neon filter-btn" data-filter="trap">Trap</button>
-                <button class="btn btn-outline-neon filter-btn" data-filter="rnb">R&B</button>
+                <button class="btn btn-outline-primary filter-btn active" data-filter="all">Alle</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="hip-hop">Hip-Hop</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="trap">Trap</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="rnb">R&B</button>
             </div>
             <div class="row" id="beat-container">
                 <!-- Beat 1 -->
-                <div class="col-md-4 beat-item hip-hop" data-aos="fade-right">
-                    <div class="card mb-4 shadow-lg bg-dark border-neon">
-                        <img src="assets/images/beat1.webp" class="card-img-top" alt="Hip-Hop Beat Titel 1 von LVKE" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title glow-text" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 1</h5>
-                            <p class="card-text">Genre: Hip-Hop</p>
-                            <audio controls class="w-100 mb-3">
-                                <source src="assets/audio/beat1.mp3" type="audio/mpeg">
-                                Dein Browser unterstützt das Audio-Element nicht.
-                            </audio>
+                <div class="col-md-4 mb-4 beat-item hip-hop" data-aos="fade-right">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 1</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=17657624" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
                             <p class="mt-2"><strong>Preis:</strong> €49.99</p>
-                            <!-- PayPal Kauf Button -->
-                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                                <input type="hidden" name="business" value="DEINE_PAYPAL_EMAIL@example.com">
-                                <input type="hidden" name="cmd" value="_xclick">
-                                <input type="hidden" name="item_name" value="Beat Titel 1">
-                                <input type="hidden" name="amount" value="49.99">
-                                <input type="hidden" name="currency_code" value="EUR">
-                                <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
-                                <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
-                            </form>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
                         </div>
                     </div>
                 </div>
                 <!-- Beat 2 -->
-                <div class="col-md-4 beat-item trap" data-aos="fade-up">
-                    <div class="card mb-4 shadow-lg bg-dark border-neon">
-                        <img src="assets/images/beat2.webp" class="card-img-top" alt="Trap Beat Titel 2 von LVKE" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title glow-text" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 2</h5>
-                            <p class="card-text">Genre: Trap</p>
-                            <audio controls class="w-100 mb-3">
-                                <source src="assets/audio/beat2.mp3" type="audio/mpeg">
-                                Dein Browser unterstützt das Audio-Element nicht.
-                            </audio>
+                <div class="col-md-4 mb-4 beat-item trap" data-aos="fade-up">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 2</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=15907715" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
                             <p class="mt-2"><strong>Preis:</strong> €49.99</p>
-                            <!-- PayPal Kauf Button -->
-                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                                <input type="hidden" name="business" value="DEINE_PAYPAL_EMAIL@example.com">
-                                <input type="hidden" name="cmd" value="_xclick">
-                                <input type="hidden" name="item_name" value="Beat Titel 2">
-                                <input type="hidden" name="amount" value="49.99">
-                                <input type="hidden" name="currency_code" value="EUR">
-                                <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
-                                <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
-                            </form>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
                         </div>
                     </div>
                 </div>
                 <!-- Beat 3 -->
-                <div class="col-md-4 beat-item rnb" data-aos="fade-left">
-                    <div class="card mb-4 shadow-lg bg-dark border-neon">
-                        <img src="assets/images/beat3.webp" class="card-img-top" alt="R&B Beat Titel 3 von LVKE" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title glow-text" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 3</h5>
-                            <p class="card-text">Genre: R&B</p>
-                            <audio controls class="w-100 mb-3">
-                                <source src="assets/audio/beat3.mp3" type="audio/mpeg">
-                                Dein Browser unterstützt das Audio-Element nicht.
-                            </audio>
+                <div class="col-md-4 mb-4 beat-item rnb" data-aos="fade-left">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 3</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=14638651" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
                             <p class="mt-2"><strong>Preis:</strong> €49.99</p>
-                            <!-- PayPal Kauf Button -->
-                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                                <input type="hidden" name="business" value="DEINE_PAYPAL_EMAIL@example.com">
-                                <input type="hidden" name="cmd" value="_xclick">
-                                <input type="hidden" name="item_name" value="Beat Titel 3">
-                                <input type="hidden" name="amount" value="49.99">
-                                <input type="hidden" name="currency_code" value="EUR">
-                                <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
-                                <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
-                            </form>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
                         </div>
                     </div>
                 </div>
-                <!-- Weitere Beats hinzufügen -->
+                <!-- Beat 4 -->
+                <div class="col-md-4 mb-4 beat-item hip-hop" data-aos="fade-right">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 4</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=20258725" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
+                            <p class="mt-2"><strong>Preis:</strong> €49.99</p>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Beat 5 -->
+                <div class="col-md-4 mb-4 beat-item trap" data-aos="fade-up">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 5</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=20201463" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
+                            <p class="mt-2"><strong>Preis:</strong> €49.99</p>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Beat 6 -->
+                <div class="col-md-4 mb-4 beat-item rnb" data-aos="fade-left">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 6</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=20161583" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
+                            <p class="mt-2"><strong>Preis:</strong> €49.99</p>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Beat 7 -->
+                <div class="col-md-4 mb-4 beat-item hip-hop" data-aos="fade-right">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 7</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=20139691" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
+                            <p class="mt-2"><strong>Preis:</strong> €49.99</p>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Beat 8 -->
+                <div class="col-md-4 mb-4 beat-item trap" data-aos="fade-up">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 8</h5>
+                            <!-- Beatstars Embed Code -->
+                            <iframe src="https://www.beatstars.com/embed/track/?id=20120264" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
+                            <p class="mt-2"><strong>Preis:</strong> €49.99</p>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Beat 9 (Optional) -->
+                <!-- Falls du einen weiteren Beat hinzufügen möchtest, kopiere den folgenden Block und passe die Details an -->
+                <!--
+                <div class="col-md-4 mb-4 beat-item [genre]" data-aos="[animation]">
+                    <div class="card shadow-lg bg-dark border-neon">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Beat 9</h5>
+                            <iframe src="https://www.beatstars.com/embed/track/?id=[BEAT_ID]" width="100%" height="140" style="border: none;" loading="lazy"></iframe>
+                            <p class="mt-2"><strong>Preis:</strong> €49.99</p>
+                            <a href="store.html" class="btn btn-primary">Kaufen mit PayPal</a>
+                        </div>
+                    </div>
+                </div>
+                -->
             </div>
         </div>
     </section>
 
-    <!-- Beat Detail Modal -->
-    <div class="modal fade" id="beatModal" tabindex="-1" aria-labelledby="beatModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content bg-dark text-white">
-          <div class="modal-header">
-            <h5 class="modal-title glow-text" id="beatModalLabel">Beat Titel</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Schließen"></button>
-          </div>
-          <div class="modal-body">
-            <img src="assets/images/beat1.webp" class="img-fluid mb-3 rounded" alt="Beat Bild">
-            <p><strong>Genre:</strong> Hip-Hop</p>
-            <audio controls class="w-100 mb-3">
-                <source src="assets/audio/beat1.mp3" type="audio/mpeg">
-                Dein Browser unterstützt das Audio-Element nicht.
-            </audio>
-            <p><strong>Beschreibung:</strong> Dieser Beat eignet sich perfekt für energiegeladene Hip-Hop-Tracks und bietet eine einzigartige Mischung aus kraftvollen Drums und melodischen Synths.</p>
-          </div>
-          <div class="modal-footer">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                <input type="hidden" name="business" value="DEINE_PAYPAL_EMAIL@example.com">
-                <input type="hidden" name="cmd" value="_xclick">
-                <input type="hidden" name="item_name" value="Beat Titel">
-                <input type="hidden" name="amount" value="49.99">
-                <input type="hidden" name="currency_code" value="EUR">
-                <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
-                <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
-            </form>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-          </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Sound of LVKE. Alle Rechte vorbehalten.</p>
+            <div class="social-links my-3">
+                <a href="https://www.youtube.com/@soundoflvke" target="_blank" class="text-white me-3"><i class="bi bi-youtube"></i> YouTube</a>
+                <a href="https://soundcloud.com/user-460157054" target="_blank" class="text-white me-3"><i class="bi bi-soundwave"></i> SoundCloud</a>
+                <a href="https://www.tiktok.com/@beatsbylvke" target="_blank" class="text-white me-3"><i class="bi bi-tiktok"></i> TikTok</a>
+                <a href="https://www.beatstars.com/soundoflvke" target="_blank" class="text-white me-3"><i class="bi bi-shop"></i> BeatStars</a>
+            </div>
+            <div class="footer-links">
+                <a href="impressum.html" class="text-white ms-3">Impressum</a>
+                <a href="datenschutz.html" class="text-white ms-3">Datenschutz</a>
+            </div>
         </div>
-      </div>
-    </div>
+    </footer>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" class="btn btn-neon" title="Nach oben">
+    <button id="scrollTopBtn" class="btn btn-primary" title="Nach oben">
         <i class="bi bi-arrow-up"></i>
     </button>
 

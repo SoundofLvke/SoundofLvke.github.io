@@ -365,3 +365,29 @@ footer a:hover {
         height: 250px;
     }
 }
+
+/* Einbettung responsive gestalten */
+iframe {
+    max-width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Zusätzliche Anpassungen für die Beat-Shop-Seite */
+.beat-shop-embed {
+    margin-bottom: 30px;
+}
+
+/* Optional: Anpassung der Iframe-Höhe für bessere Sichtbarkeit */
+@media (min-width: 768px) {
+    iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    iframe {
+        height: 200px;
+    }
+}
