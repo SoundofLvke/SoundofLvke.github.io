@@ -1,5 +1,3 @@
-// assets/js/scripts.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // Smooth Scrolling für interne Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -25,52 +23,65 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 
     // Modal Dynamische Inhalte
     const beatModal = document.getElementById('beatModal');
-    const modalTitle = beatModal.querySelector('.modal-title');
-    const modalImage = beatModal.querySelector('.modal-body img');
-    const modalGenre = beatModal.querySelector('.modal-body p:nth-of-type(1)');
-    const modalAudio = beatModal.querySelector('.modal-body audio source');
-    const modalDescription = beatModal.querySelector('.modal-body p:nth-of-type(2)');
-    const modalAudioPlayer = beatModal.querySelector('.modal-body audio');
-    const modalFormItemName = beatModal.querySelector('form input[name="item_name"]');
-    const modalFormAmount = beatModal.querySelector('form input[name="amount"]');
+    if (beatModal) {
+        const modalTitle = beatModal.querySelector('.modal-title');
+        const modalImage = beatModal.querySelector('.modal-body img');
+        const modalGenre = beatModal.querySelector('.modal-body p:nth-of-type(1)');
+        const modalAudio = beatModal.querySelector('.modal-body audio source');
+        const modalDescription = beatModal.querySelector('.modal-body p:nth-of-type(2)');
+        const modalAudioPlayer = beatModal.querySelector('.modal-body audio');
+        const modalFormItemName = beatModal.querySelector('form input[name="item_name"]');
+        const modalFormAmount = beatModal.querySelector('form input[name="amount"]');
 
-    document.querySelectorAll('.card-title').forEach(title => {
-        title.addEventListener('click', () => {
-            const card = title.closest('.card');
-            const beatTitle = title.textContent;
-            const beatGenreText = card.querySelector('.card-text').textContent.replace('Genre: ', '');
-            const beatImageSrc = card.querySelector('img').src;
-            const beatAudioSrc = card.querySelector('audio source') ? card.querySelector('audio source').src : '';
-            const beatDescription = `Dieser Beat eignet sich perfekt für energiegeladene ${beatGenreText}-Tracks und bietet eine einzigartige Mischung aus kraftvollen Drums und melodischen Synths.`;
+        document.querySelectorAll('.card-title').forEach(title => {
+            title.addEventListener('click', () => {
+                const card = title.closest('.card');
+                if (!card) return;
 
-            // Setze die Modal-Inhalte
-            modalTitle.textContent = beatTitle;
-            modalImage.src = beatImageSrc;
-            modalGenre.textContent = `Genre: ${beatGenreText}`;
-            if (beatAudioSrc) {
-                modalAudio.src = beatAudioSrc;
-                modalAudioPlayer.load();
-                modalAudioPlayer.parentElement.style.display = 'block';
-            } else {
-                modalAudioPlayer.parentElement.style.display = 'none';
-            }
-            modalDescription.textContent = `Beschreibung: ${beatDescription}`;
-            modalFormItemName.value = beatTitle;
-            // Preis wird aus dem Preis-Paragraphen geholt
-            const priceText = card.querySelector('.mt-2 strong') ? card.querySelector('.mt-2 strong').nextSibling.textContent.trim() : '49.99';
-            const priceValue = priceText.replace('€', '').trim();
-            modalFormAmount.value = priceValue;
+                const beatTitle = title.textContent;
+                const genreElement = card.querySelector('.card-text');
+                const beatGenreText = genreElement ? genreElement.textContent.replace('Genre: ', '') : 'Unbekannt';
+                const beatImage = card.querySelector('img');
+                const beatImageSrc = beatImage ? beatImage.src : '';
+                const beatAudioSource = card.querySelector('audio source');
+                const beatAudioSrc = beatAudioSource ? beatAudioSource.src : '';
+                const beatDescription = `Dieser Beat eignet sich perfekt für energiegeladene ${beatGenreText}-Tracks und bietet eine einzigartige Mischung aus kraftvollen Drums und melodischen Synths.`;
+
+                // Setze die Modal-Inhalte
+                if (modalTitle) modalTitle.textContent = beatTitle;
+                if (modalImage) modalImage.src = beatImageSrc;
+                if (modalGenre) modalGenre.textContent = `Genre: ${beatGenreText}`;
+                if (beatAudioSrc && modalAudio) {
+                    modalAudio.src = beatAudioSrc;
+                    if (modalAudioPlayer) {
+                        modalAudioPlayer.load();
+                        modalAudioPlayer.parentElement.style.display = 'block';
+                    }
+                } else if (modalAudioPlayer) {
+                    modalAudioPlayer.parentElement.style.display = 'none';
+                }
+                if (modalDescription) modalDescription.textContent = `Beschreibung: ${beatDescription}`;
+                if (modalFormItemName) modalFormItemName.value = beatTitle;
+
+                // Preis wird aus dem Preis-Paragraphen geholt
+                const priceElement = card.querySelector('.mt-2 strong');
+                const priceText = priceElement ? priceElement.nextSibling.textContent.trim() : '49.99';
+                const priceValue = priceText.replace('€', '').trim();
+                if (modalFormAmount) modalFormAmount.value = priceValue;
+            });
         });
-    });
+    }
 
     // Filter-Buttons Funktionalität (falls vorhanden)
     const filterButtons = document.querySelectorAll('.filter-btn');
