@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Sound of LVKE</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Sound of LVKE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Startseite</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Über Mich</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">Beat-Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="portfolio.html">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Kontakt</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Portfolio Section -->
+    <section class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-center mb-4">Portfolio</h2>
+            <div class="row">
+                <!-- Beat 1 -->
+                <div class="col-md-4 beat-item hip-hop" data-aos="fade-right">
+                    <div class="card mb-4">
+                        <img src="assets/images/beat1.jpg" class="card-img-top" alt="Hip-Hop Beat Titel 1 von LVKE" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal" style="cursor: pointer;">Beat Titel 1</h5>
+                            <p class="card-text">Genre: Hip-Hop</p>
+                            <audio controls class="w-100">
+                                <source src="assets/audio/beat1.mp3" type="audio/mpeg">
+                                Dein Browser unterstützt das Audio-Element nicht.
+                            </audio>
+                            <a href="store.html" class="btn btn-primary mt-3" data-aos="fade-up">Kaufen</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Beat 2 -->
+                <div class="col-md-4 beat-item trap" data-aos="fade-up">
+                    <div class="card mb-4">
+                        <img src="assets/images/beat2.jpg" class="card-img-top" alt="Trap Beat Titel 2 von LVKE" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal" style="cursor: pointer;">Beat Titel 2</h5>
+                            <p class="card-text">Genre: Trap</p>
+                            <audio controls class="w-100">
+                                <source src="assets/audio/beat2.mp3" type="audio/mpeg">
+                                Dein Browser unterstützt das Audio-Element nicht.
+                            </audio>
+                            <a href="store.html" class="btn btn-primary mt-3" data-aos="fade-up">Kaufen</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Beat 3 -->
+                <div class="col-md-4 beat-item rnb" data-aos="fade-left">
+                    <div class="card mb-4">
+                        <img src="assets/images/beat3.jpg" class="card-img-top" alt="R&B Beat Titel 3 von LVKE" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal" style="cursor: pointer;">Beat Titel 3</h5>
+                            <p class="card-text">Genre: R&B</p>
+                            <audio controls class="w-100">
+                                <source src="assets/audio/beat3.mp3" type="audio/mpeg">
+                                Dein Browser unterstützt das Audio-Element nicht.
+                            </audio>
+                            <a href="store.html" class="btn btn-primary mt-3" data-aos="fade-up">Kaufen</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Weitere Beats hinzufügen -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Beat Detail Modal -->
+    <div class="modal fade" id="beatModal" tabindex="-1" aria-labelledby="beatModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h5 class="modal-title" id="beatModalLabel">Beat Titel</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Schließen"></button>
+          </div>
+          <div class="modal-body">
+            <img src="assets/images/beat1.jpg" class="img-fluid mb-3" alt="Beat Bild">
+            <p><strong>Genre:</strong> Hip-Hop</p>
+            <audio controls class="w-100 mb-3">
+                <source src="assets/audio/beat1.mp3" type="audio/mpeg">
+                Dein Browser unterstützt das Audio-Element nicht.
+            </audio>
+            <p><strong>Beschreibung:</strong> Dieser Beat eignet sich perfekt für energiegeladene Hip-Hop-Tracks und bietet eine einzigartige Mischung aus kraftvollen Drums und melodischen Synths.</p>
+          </div>
+          <div class="modal-footer">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="business" value="DEINE_PAYPAL_EMAIL@example.com">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="item_name" value="Beat Titel">
+                <input type="hidden" name="amount" value="49.99">
+                <input type="hidden" name="currency_code" value="EUR">
+                <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
+                <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
+                <button type="submit" class="btn btn-primary">Kaufen mit PayPal</button>
+            </form>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="btn btn-primary" title="Nach oben">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS and dependencies (Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          duration: 1000,
+          once: true,
+      });
+    </script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+/* assets/css/styles.css */
+
+/* Grundlegende Typografie und Farbpalette */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+}
+
+a {
+    color: #1ABC9C;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #2980B9;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #1ABC9C;
+    border-color: #1ABC9C;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #16A085;
+    border-color: #16A085;
+}
+
+.btn-secondary {
+    background-color: #E67E22;
+    border-color: #E67E22;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #D35400;
+    border-color: #D35400;
+}
+
+.btn-primary:active, .btn-secondary:active {
+    transform: scale(0.95);
+}
+
+/* Three.js Background */
+#threejs-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5; /* Hinter allen anderen Elementen */
+    overflow: hidden;
+    pointer-events: none; /* Verhindert, dass die Animation Mausinteraktionen blockiert */
+}
+
+/* Sicherstellen, dass der Hauptinhalt über dem Hintergrund liegt */
+body, html {
+    position: relative;
+    z-index: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    position: relative;
+    background: url('../images/hero-bg.webp') no-repeat center center/cover;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 31, 54, 0.6); /* Halbtransparentes Dunkelblau */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Karten-Styling */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(26, 31, 54, 0.2);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-title {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.card-title:hover {
+    color: #1ABC9C;
+}
+
+/* Testimonials Section */
+.testimonial {
+    background-color: #34495E;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.testimonial:hover {
+    background-color: #2C3E50;
+}
+
+.testimonial img {
+    border: 3px solid #1ABC9C;
+    transition: border-color 0.3s;
+}
+
+.testimonial img:hover {
+    border-color: #E67E22;
+}
+
+.testimonial p {
+    color: #ECF0F1;
+    font-style: italic;
+}
+
+.testimonial h5 {
+    margin-top: 15px;
+    color: #1ABC9C;
+}
+
+/* Newsletter Section */
+.bg-light {
+    background-color: #2C3E50 !important;
+    color: #FFFFFF !important;
+}
+
+#newsletterForm input[type="email"] {
+    background-color: #34495E;
+    border: none;
+    color: #FFFFFF;
+}
+
+#newsletterForm input::placeholder {
+    color: #BDC3C7;
+}
+
+#newsletterForm button {
+    background-color: #1ABC9C;
+    border-color: #1ABC9C;
+}
+
+#newsletterForm button:hover {
+    background-color: #16A085;
+    border-color: #16A085;
+}
+
+#newsletterFeedback p {
+    color: #1ABC9C;
+}
+
+/* Social Media Feeds Section */
+.ratio {
+    margin-bottom: 20px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1A1F36;
+}
+
+footer a {
+    color: #1ABC9C;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #E67E22;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+.social-links a i {
+    margin-right: 5px;
+}
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #1ABC9C;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #16A085;
+}
+
+#scrollTopBtn:active {
+    transform: scale(0.95);
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: #2C3E50;
+    color: #ECF0F1;
+}
+
+.modal-header, .modal-footer {
+    border-color: #1ABC9C;
+}
+
+.modal-title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-body img {
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.modal-body audio {
+    margin-bottom: 15px;
+}
+
+.modal-footer a.btn-primary {
+    background-color: #1ABC9C;
+    border-color: #1ABC9C;
+}
+
+.modal-footer a.btn-primary:hover {
+    background-color: #16A085;
+    border-color: #16A085;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #E67E22;
+    border-color: #E67E22;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #D35400;
+    border-color: #D35400;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    background-color: transparent;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+
+.breadcrumb-item a {
+    color: #1ABC9C;
+}
+
+.breadcrumb-item.active {
+    color: #ECF0F1;
+}
+
+/* Partner Logos */
+.partner-logo {
+    max-height: 80px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s;
+}
+
+.partner-logo:hover {
+    filter: brightness(0) invert(0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .filter-btn {
+        margin-bottom: 10px;
+    }
+
+    .card-img-top {
+        height: 150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-img-top {
+        height: 250px;
+    }
+}
