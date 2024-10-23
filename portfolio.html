@@ -6,7 +6,7 @@
     <title>Portfolio | Sound of LVKE</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@400;500&family=Roboto&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,12 +19,18 @@
     
     <!-- Custom CSS -->
     <link href="assets/css/styles.css" rel="stylesheet">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
+    <!-- Three.js Background -->
+    <div id="threejs-background"></div>
+    
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Sound of LVKE</a>
+        <a class="navbar-brand text-neon" href="index.html">Sound of LVKE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -49,6 +55,15 @@
             <li class="nav-item">
               <a class="nav-link" href="blog.html">Blog</a>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mehr
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                <li><a class="dropdown-item" href="testimonials.html">Testimonials</a></li>
+                <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -61,46 +76,46 @@
             <div class="row">
                 <!-- Beat 1 -->
                 <div class="col-md-4 beat-item hip-hop" data-aos="fade-right">
-                    <div class="card mb-4">
+                    <div class="card mb-4 shadow-lg bg-dark border-neon">
                         <img src="assets/images/beat1.jpg" class="card-img-top" alt="Hip-Hop Beat Titel 1 von LVKE" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal" style="cursor: pointer;">Beat Titel 1</h5>
+                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 1</h5>
                             <p class="card-text">Genre: Hip-Hop</p>
-                            <audio controls class="w-100">
+                            <audio controls class="w-100 mb-3">
                                 <source src="assets/audio/beat1.mp3" type="audio/mpeg">
                                 Dein Browser unterstützt das Audio-Element nicht.
                             </audio>
-                            <a href="store.html" class="btn btn-primary mt-3" data-aos="fade-up">Kaufen</a>
+                            <a href="store.html" class="btn btn-primary mt-3">Kaufen</a>
                         </div>
                     </div>
                 </div>
                 <!-- Beat 2 -->
                 <div class="col-md-4 beat-item trap" data-aos="fade-up">
-                    <div class="card mb-4">
+                    <div class="card mb-4 shadow-lg bg-dark border-neon">
                         <img src="assets/images/beat2.jpg" class="card-img-top" alt="Trap Beat Titel 2 von LVKE" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal" style="cursor: pointer;">Beat Titel 2</h5>
+                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 2</h5>
                             <p class="card-text">Genre: Trap</p>
-                            <audio controls class="w-100">
+                            <audio controls class="w-100 mb-3">
                                 <source src="assets/audio/beat2.mp3" type="audio/mpeg">
                                 Dein Browser unterstützt das Audio-Element nicht.
                             </audio>
-                            <a href="store.html" class="btn btn-primary mt-3" data-aos="fade-up">Kaufen</a>
+                            <a href="store.html" class="btn btn-primary mt-3">Kaufen</a>
                         </div>
                     </div>
                 </div>
                 <!-- Beat 3 -->
                 <div class="col-md-4 beat-item rnb" data-aos="fade-left">
-                    <div class="card mb-4">
+                    <div class="card mb-4 shadow-lg bg-dark border-neon">
                         <img src="assets/images/beat3.jpg" class="card-img-top" alt="R&B Beat Titel 3 von LVKE" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal" style="cursor: pointer;">Beat Titel 3</h5>
+                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 3</h5>
                             <p class="card-text">Genre: R&B</p>
-                            <audio controls class="w-100">
+                            <audio controls class="w-100 mb-3">
                                 <source src="assets/audio/beat3.mp3" type="audio/mpeg">
                                 Dein Browser unterstützt das Audio-Element nicht.
                             </audio>
-                            <a href="store.html" class="btn btn-primary mt-3" data-aos="fade-up">Kaufen</a>
+                            <a href="store.html" class="btn btn-primary mt-3">Kaufen</a>
                         </div>
                     </div>
                 </div>
@@ -149,18 +164,24 @@
     </button>
 
     <!-- Bootstrap JS and dependencies (Popper.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     
     <!-- AOS JS -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      AOS.init({
-          duration: 1000,
-          once: true,
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+          AOS.init({
+              duration: 1000,
+              once: true,
+              easing: 'ease-in-out',
+          });
       });
     </script>
     
     <!-- Custom JS -->
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/scripts.js" defer></script>
+    
+    <!-- Three.js Script -->
+    <script src="assets/js/threejs-background.js" defer></script>
 </body>
 </html>

@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Setze die Modal-Inhalte
             modalTitle.textContent = beatTitle;
             modalImage.src = beatImageSrc;
-            modalGenre.textContent = `Genre: ${beatGenreText}`;
+            modalGenre.innerHTML = `<strong>Genre:</strong> ${beatGenreText}`;
             if (beatAudioSrc) {
                 modalAudio.src = beatAudioSrc;
                 modalAudioPlayer.load();
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 modalAudioPlayer.parentElement.style.display = 'none';
             }
-            modalDescription.textContent = `Beschreibung: ${beatDescription}`;
+            modalDescription.innerHTML = `<strong>Beschreibung:</strong> ${beatDescription}`;
             modalFormItemName.value = beatTitle;
             // Preis wird aus dem Preis-Paragraphen geholt
             const priceText = card.querySelector('.mt-2 strong') ? card.querySelector('.mt-2 strong').nextSibling.textContent.trim() : '49.99';
@@ -98,5 +98,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
     if (allBtn) {
         allBtn.classList.add('active');
+    }
+
+    // Formular Feedback
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterFeedback = document.getElementById('newsletterFeedback');
+
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this)
+            })
+            .then(response => {
+                if (response.ok) {
+                    newsletterFeedback.style.display = 'block';
+                    newsletterForm.reset();
+                } else {
+                    alert('Es gab ein Problem mit deiner Anmeldung. Bitte versuche es erneut.');
+                }
+            })
+            .catch(error => {
+                alert('Es gab ein Problem mit deiner Anmeldung. Bitte versuche es erneut.');
+            });
+        });
+    }
+
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            fetch(this.action, {
+                method: this.method,
+                body: new FormData(this)
+            })
+            .then(response => {
+                if (response.ok) {
+                    formFeedback.style.display = 'block';
+                    contactForm.reset();
+                } else {
+                    alert('Es gab ein Problem mit deiner Nachricht. Bitte versuche es erneut.');
+                }
+            })
+            .catch(error => {
+                alert('Es gab ein Problem mit deiner Nachricht. Bitte versuche es erneut.');
+            });
+        });
     }
 });

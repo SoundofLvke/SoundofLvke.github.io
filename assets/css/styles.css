@@ -24,31 +24,30 @@ a:hover {
     color: #2980B9;
 }
 
+/* Neon-Text ohne starken Glow */
+.text-neon {
+    color: #1ABC9C;
+    text-shadow: 0 0 5px rgba(26, 188, 156, 0.7), 0 0 10px rgba(26, 188, 156, 0.5);
+}
+
 /* Buttons */
-.btn-primary {
+.btn-neon {
     background-color: #1ABC9C;
     border-color: #1ABC9C;
-    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+    color: #FFFFFF;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
 }
 
-.btn-primary:hover {
+.btn-neon:hover {
     background-color: #16A085;
     border-color: #16A085;
+    box-shadow: 0 0 10px rgba(22, 160, 133, 0.7);
 }
 
-.btn-secondary {
-    background-color: #E67E22;
-    border-color: #E67E22;
-    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
-}
-
-.btn-secondary:hover {
-    background-color: #D35400;
-    border-color: #D35400;
-}
-
-.btn-primary:active, .btn-secondary:active {
+.btn-neon:active {
     transform: scale(0.95);
+    box-shadow: 0 0 8px rgba(22, 160, 133, 0.6);
 }
 
 /* Three.js Background */
@@ -98,10 +97,12 @@ body, html {
 .hero-section h1 {
     font-size: 3rem;
     font-weight: 700;
+    text-shadow: 0 0 10px rgba(26, 188, 156, 0.7), 0 0 20px rgba(26, 188, 156, 0.5);
 }
 
 .hero-section p {
     font-size: 1.25rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -121,7 +122,7 @@ body, html {
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(26, 31, 54, 0.2);
+    box-shadow: 0 20px 40px rgba(26, 188, 156, 0.2);
 }
 
 .card-img-top {
@@ -141,6 +142,7 @@ body, html {
 
 .card-title:hover {
     color: #1ABC9C;
+    text-shadow: 0 0 5px rgba(26, 188, 156, 0.7);
 }
 
 /* Testimonials Section */
@@ -288,12 +290,12 @@ footer a:hover {
     margin-bottom: 15px;
 }
 
-.modal-footer a.btn-primary {
+.modal-footer .btn-neon {
     background-color: #1ABC9C;
     border-color: #1ABC9C;
 }
 
-.modal-footer a.btn-primary:hover {
+.modal-footer .btn-neon:hover {
     background-color: #16A085;
     border-color: #16A085;
 }

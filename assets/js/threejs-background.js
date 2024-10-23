@@ -27,86 +27,48 @@ window.addEventListener('resize', () => {
 });
 
 // Licht hinzufügen
-const ambientLight = new THREE.AmbientLight(0x404040, 2); // weiches Umgebungslicht
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Weiches Umgebungslicht
 scene.add(ambientLight);
 
-const pointLight = new THREE.PointLight(0x1ABC9C, 1, 500);
+const pointLight = new THREE.PointLight(0xffffff, 1, 500);
 pointLight.position.set(50, 50, 50);
 scene.add(pointLight);
 
 // Funktion zum Erstellen eines Partikels
 const particleGeometry = new THREE.BufferGeometry();
-const particleCount = 1000;
+const particleCount = 800; // Reduziert für bessere Performance
 const positions = [];
+const colors = [];
+
+const color = new THREE.Color();
 
 for (let i = 0; i < particleCount; i++) {
-    const x = (Math.random() - 0.5) * 1000;
-    const y = (Math.random() - 0.5) * 1000;
-    const z = (Math.random() - 0.5) * 1000;
+    const x = (Math.random() - 0.5) * 800;
+    const y = (Math.random() - 0.5) * 800;
+    const z = (Math.random() - 0.5) * 800;
     positions.push(x, y, z);
+
+    // Zufällige, lebendige Farben
+    color.setHSL(Math.random(), 0.7, 0.5);
+    colors.push(color.r, color.g, color.b);
 }
 
 particleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+particleGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
 const particleMaterial = new THREE.PointsMaterial({
-    color: 0x1ABC9C,
-    size: 1,
+    size: 1.5,
+    vertexColors: true,
     transparent: true,
-    opacity: 0.7
+    opacity: 0.7,
+    blending: THREE.AdditiveBlending
 });
 
 const particles = new THREE.Points(particleGeometry, particleMaterial);
 scene.add(particles);
 
-// Funktion zum Erstellen eines Meshes
-const createMesh = (size, color, speed) => {
-    const geometry = new THREE.IcosahedronGeometry(size, 0);
-    const material = new THREE.MeshPhongMaterial({
-        color: color,
-        emissive: 0x000000,
-        flatShading: true,
-        shininess: 50,
-        side: THREE.DoubleSide
-    });
-    const mesh = new THREE.Mesh(geometry, material);
-    
-    // Zufällige Positionierung innerhalb eines bestimmten Bereichs
-    mesh.position.x = (Math.random() - 0.5) * 100;
-    mesh.position.y = (Math.random() - 0.5) * 100;
-    mesh.position.z = (Math.random() - 0.5) * 100;
-    
-    // Zufällige Skalierung
-    const scale = Math.random() * 2 + 0.5;
-    mesh.scale.set(scale, scale, scale);
-    
-    // Zufällige Rotation
-    mesh.rotation.x = Math.random() * 2 * Math.PI;
-    mesh.rotation.y = Math.random() * 2 * Math.PI;
-    
-    // Geschwindigkeit der Rotation
-    mesh.userData = {
-        rotationSpeedX: (Math.random() * 0.002) + 0.001,
-        rotationSpeedY: (Math.random() * 0.002) + 0.001
-    };
-    
-    scene.add(mesh);
-    return mesh;
-};
-
-// Farben für die Meshes
-const colors = [0x1ABC9C, 0xE67E22, 0x3498DB];
-
-// Anzahl der Meshes (Reduziert für bessere Performance)
-const numberOfMeshes = 50;
-const meshes = [];
-
-for (let i = 0; i < numberOfMeshes; i++) {
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    meshes.push(createMesh(1, color, 0.001));
-}
-
 // Kamera positionieren
-camera.position.z = 100;
+camera.position.z = 150;
 
 // Mausbewegung für interaktive Kamera
 let mouseX = 0, mouseY = 0;
@@ -130,14 +92,8 @@ const animate = function () {
     camera.position.y += (-mouseY * 50 - camera.position.y) * 0.05;
     camera.lookAt(scene.position);
     
-    // Rotationsanimation für alle Meshes
-    meshes.forEach(mesh => {
-        mesh.rotation.x += mesh.userData.rotationSpeedX;
-        mesh.rotation.y += mesh.userData.rotationSpeedY;
-    });
-    
-    // Partikel bewegen
-    particles.rotation.y += 0.001;
+    // Partikel rotieren leicht für dynamische Bewegung
+    particles.rotation.y += 0.0005;
     
     renderer.render(scene, camera);
 };

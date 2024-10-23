@@ -9,7 +9,7 @@
     <meta name="author" content="LVKE">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@400;500&family=Roboto&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,9 +28,9 @@
     <div id="threejs-background"></div>
     
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Sound of LVKE</a>
+        <a class="navbar-brand text-neon" href="index.html">Sound of LVKE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -82,21 +82,21 @@
     <!-- Beat-Shop Section -->
     <section class="py-5" data-aos="fade-up">
         <div class="container">
-            <h2 class="text-center mb-4">Beat-Shop</h2>
+            <h2 class="text-center mb-4 text-neon">Beat-Shop</h2>
             <!-- Filter Buttons -->
             <div class="text-center mb-4">
-                <button class="btn btn-outline-primary filter-btn active" data-filter="all">Alle</button>
-                <button class="btn btn-outline-primary filter-btn" data-filter="hip-hop">Hip-Hop</button>
-                <button class="btn btn-outline-primary filter-btn" data-filter="trap">Trap</button>
-                <button class="btn btn-outline-primary filter-btn" data-filter="rnb">R&B</button>
+                <button class="btn btn-outline-neon filter-btn active" data-filter="all">Alle</button>
+                <button class="btn btn-outline-neon filter-btn" data-filter="hip-hop">Hip-Hop</button>
+                <button class="btn btn-outline-neon filter-btn" data-filter="trap">Trap</button>
+                <button class="btn btn-outline-neon filter-btn" data-filter="rnb">R&B</button>
             </div>
             <div class="row" id="beat-container">
                 <!-- Beat 1 -->
                 <div class="col-md-4 beat-item hip-hop" data-aos="fade-right">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-lg bg-dark border-neon">
                         <img src="assets/images/beat1.webp" class="card-img-top" alt="Hip-Hop Beat Titel 1 von LVKE" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 1</h5>
+                            <h5 class="card-title glow-text" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 1</h5>
                             <p class="card-text">Genre: Hip-Hop</p>
                             <audio controls class="w-100 mb-3">
                                 <source src="assets/audio/beat1.mp3" type="audio/mpeg">
@@ -112,17 +112,17 @@
                                 <input type="hidden" name="currency_code" value="EUR">
                                 <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
                                 <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                                <button type="submit" class="btn btn-primary">Kaufen mit PayPal</button>
+                                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
                             </form>
                         </div>
                     </div>
                 </div>
                 <!-- Beat 2 -->
                 <div class="col-md-4 beat-item trap" data-aos="fade-up">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-lg bg-dark border-neon">
                         <img src="assets/images/beat2.webp" class="card-img-top" alt="Trap Beat Titel 2 von LVKE" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 2</h5>
+                            <h5 class="card-title glow-text" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 2</h5>
                             <p class="card-text">Genre: Trap</p>
                             <audio controls class="w-100 mb-3">
                                 <source src="assets/audio/beat2.mp3" type="audio/mpeg">
@@ -138,17 +138,17 @@
                                 <input type="hidden" name="currency_code" value="EUR">
                                 <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
                                 <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                                <button type="submit" class="btn btn-primary">Kaufen mit PayPal</button>
+                                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
                             </form>
                         </div>
                     </div>
                 </div>
                 <!-- Beat 3 -->
                 <div class="col-md-4 beat-item rnb" data-aos="fade-left">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-lg bg-dark border-neon">
                         <img src="assets/images/beat3.webp" class="card-img-top" alt="R&B Beat Titel 3 von LVKE" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 3</h5>
+                            <h5 class="card-title glow-text" data-bs-toggle="modal" data-bs-target="#beatModal">Beat Titel 3</h5>
                             <p class="card-text">Genre: R&B</p>
                             <audio controls class="w-100 mb-3">
                                 <source src="assets/audio/beat3.mp3" type="audio/mpeg">
@@ -164,7 +164,7 @@
                                 <input type="hidden" name="currency_code" value="EUR">
                                 <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
                                 <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                                <button type="submit" class="btn btn-primary">Kaufen mit PayPal</button>
+                                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
                             </form>
                         </div>
                     </div>
@@ -179,11 +179,11 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content bg-dark text-white">
           <div class="modal-header">
-            <h5 class="modal-title" id="beatModalLabel">Beat Titel</h5>
+            <h5 class="modal-title glow-text" id="beatModalLabel">Beat Titel</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Schließen"></button>
           </div>
           <div class="modal-body">
-            <img src="assets/images/beat1.webp" class="img-fluid mb-3" alt="Beat Bild">
+            <img src="assets/images/beat1.webp" class="img-fluid mb-3 rounded" alt="Beat Bild">
             <p><strong>Genre:</strong> Hip-Hop</p>
             <audio controls class="w-100 mb-3">
                 <source src="assets/audio/beat1.mp3" type="audio/mpeg">
@@ -200,7 +200,7 @@
                 <input type="hidden" name="currency_code" value="EUR">
                 <input type="hidden" name="return" value="http://deinewebsite.com/danke.html">
                 <input type="hidden" name="notify_url" value="http://deinewebsite.com/ipn.php">
-                <button type="submit" class="btn btn-primary">Kaufen mit PayPal</button>
+                <button type="submit" class="btn btn-neon">Kaufen mit PayPal</button>
             </form>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
           </div>
@@ -209,7 +209,7 @@
     </div>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" class="btn btn-primary" title="Nach oben">
+    <button id="scrollTopBtn" class="btn btn-neon" title="Nach oben">
         <i class="bi bi-arrow-up"></i>
     </button>
 
