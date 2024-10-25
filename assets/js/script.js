@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
-            scrollTopBtn.style.display = 'block';
+            scrollTopBtn.style.opacity = '1';
         } else {
-            scrollTopBtn.style.display = 'none';
+            scrollTopBtn.style.opacity = '0';
         }
     });
 
@@ -113,4 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
             allBtn.classList.add('active');
         }
     }
+});
+
+// Enhancing smooth scroll behavior for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
 });
