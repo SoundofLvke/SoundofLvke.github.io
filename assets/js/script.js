@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+(document.addEventListener('DOMContentLoaded', () => {
     // Smooth Scrolling für interne Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll to Top Button
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollTopBtn.style.opacity = '1';
+    window.onscroll, () => {
+        if (window.scrollY > 80) {
+            scrollTopBtn.style.opacity = '1'; scrollTopBtn.style.visibility = 'visible';
         } else {
-            scrollTopBtn.style.opacity = '0';
+            scrollTopBtn.style.opacity = '0'; scrollTopBtn.style.visibility = 'hidden';
         }
     });
 
@@ -115,12 +115,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Enhancing smooth scroll behavior for internal links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
-        });
-    });
-});
+
