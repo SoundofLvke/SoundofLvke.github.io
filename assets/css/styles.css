@@ -407,7 +407,7 @@ html {
     overflow-y: scroll;
 }
 
-/* Optimiertes Layout für Beat-Anzeigen */
+/* Optimiertes Beat-Shop Layout */
 #beat-container, #featured-beat-container {
     display: flex;
     flex-wrap: wrap;
@@ -436,4 +436,8 @@ body {
     padding-top: 80px; /* Höhe der Navigation */
 }
 
-/* Weitere Anpassungen, falls nötig */
+/* Navigation Link Hover und Active State */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #FFD700;
+}
