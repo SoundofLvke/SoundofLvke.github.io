@@ -8,38 +8,23 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    font-size: 16px;
-    position: relative;
-    z-index: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    color: #FFD700; /* Gold für professionelle Optik */
-    text-shadow: 0 0 5px rgba(255, 221, 68, 0.4);
-    margin-bottom: 1rem;
+    color: #FFD700;  /* Gold */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 a {
     color: #FFD700;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 a:hover {
     color: #FF8C00;
     text-decoration: underline;
-}
-
-/* Neon Text Effekt */
-.text-neon {
-    color: #FFD700;
-    text-shadow:
-        0 0 5px #FFD700,
-        0 0 10px #FFD700,
-        0 0 20px #FFA500,
-        0 0 40px #FF8C00,
-        0 0 80px #FF8C00;
 }
 
 /* Buttons */
@@ -49,43 +34,35 @@ a:hover {
     color: #121212;
     font-weight: bold;
     padding: 10px 25px;
-    border-radius: 4px;
+    border-radius: 5px;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 76, 41, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
 }
 
 .btn-primary:hover {
-    background-color: #FFC300;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 142, 66, 0.6);
+    background-color: #FF8C00;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
 }
 
 .btn-secondary {
-    background-color: #555555;
+    background-color: #333333;
     border: none;
-    color: #FFFFFF;
+    color: #FFD700;
     font-weight: bold;
     padding: 10px 25px;
-    border-radius: 4px;
+    border-radius: 5px;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
 .btn-secondary:hover {
-    background-color: #777777;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(119, 119, 119, 0.6);
+    background-color: #555555;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(85, 85, 85, 0.6);
 }
 
-.btn-neon {
-    background-color: transparent;
-    border: 2px solid #FFD700;
-    color: #FFD700;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-neon:hover {
-    background-color: #FFD700;
-    color: #121212;
+.btn-close-white {
+    filter: invert(1);
 }
 
 /* Three.js Background */
@@ -100,88 +77,50 @@ a:hover {
     pointer-events: none;
 }
 
+/* Sicherstellen, dass der Hauptinhalt über dem Hintergrund liegt */
+body, html {
+    position: relative;
+    z-index: 0;
+}
+
 /* Hero Section */
 .hero-section {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFD700;
+    color: #E0E0E0;
     position: relative;
     background: url('../images/hero-bg.webp') no-repeat center center/cover;
     background-attachment: fixed;
     text-align: center;
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(18, 18, 18, 0.6); /* Halbtransparentes Dunkel für bessere Lesbarkeit */
-    z-index: 1;
-}
-
-.hero-content {
+.hero-section .hero-content {
     position: relative;
     z-index: 2;
 }
 
 .hero-section h1 {
     font-size: 3.5rem;
+    color: #FFD700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
     margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(255, 221, 68, 0.4);
 }
 
 .hero-section p {
+    color: #E0E0E0;
     max-width: 600px;
     margin: 0 auto 20px;
     font-size: 1.1rem;
 }
 
-.hero-section .btn {
-    z-index: 2;
-}
-
-/* Navigation */
-.navbar {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #181818 !important;
-}
-
-.navbar-brand {
-    color: #FFD700 !important;
-    font-weight: bold;
-    font-size: 1.8rem;
-    transition: color 0.3s ease;
-}
-
-.navbar-brand:hover {
-    color: #FF8C00 !important;
-}
-
-.navbar-nav .nav-item .nav-link {
-    color: #B0B0B0 !important;
-    margin-right: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-    color: #FFD700 !important;
-}
-
 /* Karten-Styling */
 .card {
+    transition: transform 0.3s, box-shadow 0.3s;
     background-color: #1C1C1C;
     border: 1px solid #333333;
     border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
@@ -190,7 +129,7 @@ a:hover {
 }
 
 .card-title {
-    color: #FFD700;
+    color: #FFFFFF;
     font-weight: 600;
     font-size: 1.2rem;
     cursor: pointer;
@@ -198,46 +137,119 @@ a:hover {
 }
 
 .card-title:hover {
-    color: #FF8C00;
+    color: #FFD700;
 }
 
 .card-text {
     color: #B0B0B0;
 }
 
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s;
+/* Testimonials Section */
+.testimonial {
+    background-color: #1C1C1C;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
 }
 
-.card:hover .card-img-top {
-    transform: scale(1.05);
+.testimonial:hover {
+    background-color: #333333;
+}
+
+.testimonial img {
+    border: 3px solid #FFD700;
+    border-radius: 50%;
+    transition: border-color 0.3s;
+}
+
+.testimonial img:hover {
+    border-color: #FF8C00;
+}
+
+.testimonial p {
+    color: #E0E0E0;
+    font-style: italic;
+}
+
+.testimonial h5 {
+    margin-top: 15px;
+    color: #FFD700;
+}
+
+/* Newsletter Section */
+.bg-light {
+    background-color: #1A1F36 !important;
+    color: #E0E0E0 !important;
+}
+
+#newsletterForm input[type="email"] {
+    background-color: #333333;
+    border: none;
+    color: #E0E0E0;
+}
+
+#newsletterForm input::placeholder {
+    color: #B0B0B0;
+}
+
+#newsletterForm button {
+    background-color: #FFD700;
+    border: none;
+    color: #121212;
+}
+
+#newsletterForm button:hover {
+    background-color: #FF8C00;
+    color: #FFFFFF;
+}
+
+#newsletterFeedback p {
+    color: #FFD700;
+}
+
+/* Social Media Feeds Section */
+.ratio {
+    margin-bottom: 20px;
 }
 
 /* Footer Styling */
 footer {
     background-color: #1C1C1C;
-    color: #E0E0E0;
-    padding: 30px 0;
 }
 
-.footer-links a,
+footer a {
+    color: #FFD700;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #FF8C00;
+}
+
 .social-links a {
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+.social-links a i {
+    margin-right: 5px;
+}
+
+.footer-links a {
     color: #FFD700;
     margin: 0 10px;
     transition: color 0.3s, transform 0.3s;
 }
 
-.footer-links a:hover,
-.social-links a:hover {
+.footer-links a:hover {
     color: #FF8C00;
     transform: scale(1.05);
-}
-
-.social-links a i {
-    margin-right: 5px;
 }
 
 /* Scroll to Top Button */
@@ -255,13 +267,17 @@ footer {
     padding: 15px;
     border-radius: 50%;
     font-size: 18px;
-    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, transform 0.2s, opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#scrollTopBtn.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 #scrollTopBtn:hover {
-    background-color: #FFC300;
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.5);
+    background-color: #FF8C00;
 }
 
 #scrollTopBtn:active {
@@ -286,12 +302,10 @@ footer {
     max-height: 300px;
     object-fit: cover;
     margin-bottom: 15px;
-    border-radius: 8px;
 }
 
 .modal-body audio {
     margin-bottom: 15px;
-    width: 100%;
 }
 
 .modal-footer .btn-primary {
@@ -301,45 +315,54 @@ footer {
 }
 
 .modal-footer .btn-primary:hover {
-    background-color: #FFC300;
-    color: #121212;
+    background-color: #FF8C00;
+    color: #FFFFFF;
 }
 
 .modal-footer .btn-secondary {
-    background-color: #555555;
+    background-color: #333333;
     border: none;
-    color: #FFFFFF;
+    color: #FFD700;
 }
 
 .modal-footer .btn-secondary:hover {
-    background-color: #777777;
-    color: #FFFFFF;
+    background-color: #555555;
+    color: #FF8C00;
+}
+
+/* Partner Logos */
+.partner-logo {
+    max-height: 80px;
+    filter: none;
+    transition: transform 0.3s;
+}
+
+.partner-logo:hover {
+    transform: scale(1.05);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section h1 {
         font-size: 2.2rem;
+        margin-top: 30px;
     }
 
     .hero-section p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-top: 10px;
     }
 
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
-
-    .navbar-nav .nav-item .nav-link {
-        margin-right: 10px;
+    .filter-btn {
+        margin-bottom: 10px;
     }
 
     .card-img-top {
         height: 150px;
     }
 
-    iframe {
-        height: 200px;
+    .beat-item {
+        flex: 1 1 100%;
     }
 }
 
@@ -348,7 +371,69 @@ footer {
         height: 250px;
     }
 
-    iframe {
-        height: 300px;
+    .beat-item {
+        flex: 1 1 calc(33.333% - 20px);
     }
 }
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .beat-item {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+/* Einbettung responsive gestalten */
+iframe {
+    max-width: 100%;
+    height: 140px; /* Anpassbar je nach Bedarf */
+    border: none;
+    overflow: hidden;
+    border-radius: 10px;
+    scrolling: no;
+}
+
+/* Entferne den temporären Scrollbalken bei eingebetteten Iframes */
+.beat-item iframe::-webkit-scrollbar {
+    display: none;
+}
+
+.beat-item iframe {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Verhindern der Positionsverschiebung durch immer sichtbare Scrollleiste */
+html {
+    overflow-y: scroll;
+}
+
+/* Optimiertes Layout für Beat-Anzeigen */
+#beat-container, #featured-beat-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.beat-item {
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+    .beat-item {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .beat-item {
+        flex: 1 1 100%;
+    }
+}
+
+/* Sicherstellen, dass der Hauptinhalt nicht von der Navigation überlappt wird */
+body {
+    padding-top: 80px; /* Höhe der Navigation */
+}
+
+/* Weitere Anpassungen, falls nötig */

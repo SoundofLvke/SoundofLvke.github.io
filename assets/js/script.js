@@ -1,25 +1,14 @@
-(document.addEventListener('DOMContentLoaded', () => {
-    // Smooth Scrolling für interne Links
+/* assets/js/scripts.js */
 
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
+document.addEventListener('DOMContentLoaded', () => {
     // Scroll to Top Button
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-    window.onscroll, () => {
+    window.addEventListener('scroll', () => {
         if (window.scrollY > 80) {
-            scrollTopBtn.style.opacity = '1'; scrollTopBtn.style.visibility = 'visible';
+            scrollTopBtn.classList.add('show');
         } else {
-            scrollTopBtn.style.opacity = '0'; scrollTopBtn.style.visibility = 'hidden';
+            scrollTopBtn.classList.remove('show');
         }
     });
 
@@ -83,7 +72,7 @@
         });
     }
 
-    // Filter-Buttons Funktionalität (falls vorhanden)
+    // Filter-Buttons Funktionalität
     const filterButtons = document.querySelectorAll('.filter-btn');
     if (filterButtons.length > 0) {
         filterButtons.forEach(button => {
@@ -102,7 +91,7 @@
                 });
 
                 // Setze aktive Klasse
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
             });
         });
@@ -114,5 +103,3 @@
         }
     }
 });
-
-
